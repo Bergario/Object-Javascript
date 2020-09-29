@@ -17,24 +17,47 @@
 
 
 // 2. Function Declaration
-function Person(name, energy) {
-    let person = {};
-    person.name = name;
-    person.energy = energy;
+// function Person(name, energy) {
+//     let person = {};
+//     person.name = name;
+//     person.energy = energy;
 
-    person.booster = function (health) {
+//     person.booster = function (health) {
+
+//         this.energy += health;
+//         console.log(`${this.name} add energy:${health} -> ${this.energy}`);
+
+//     }
+
+//     person.attack = function (hit) {
+//         this.energy -= hit;
+//         console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
+//     }
+//     return person;
+// }
+
+// let bergario = Person('bergario', 50);
+// let batman = Person('batman', 30);
+
+
+// 3. Constructor Function
+
+function Person(name, energy) {
+    this.name = name;
+    this.energy = energy;
+
+    this.booster = function (health) {
 
         this.energy += health;
         console.log(`${this.name} add energy:${health} -> ${this.energy}`);
 
     }
 
-    person.attack = function (hit) {
+    this.attack = function (hit) {
         this.energy -= hit;
         console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
     }
-    return person;
 }
 
-let bergario = Person('bergario', 50);
-let batman = Person('batman', 30);
+let bergario = new Person('bergario', 50);
+let superman = new Person('superman', 100);
