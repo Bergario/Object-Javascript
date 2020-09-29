@@ -42,22 +42,52 @@
 
 // 3. Constructor Function
 
-function Person(name, energy) {
-    this.name = name;
-    this.energy = energy;
+// function Person(name, energy) {
+//     this.name = name;
+//     this.energy = energy;
 
-    this.booster = function (health) {
+//     this.booster = function (health) {
+
+//         this.energy += health;
+//         console.log(`${this.name} add energy:${health} -> ${this.energy}`);
+
+//     }
+
+//     this.attack = function (hit) {
+//         this.energy -= hit;
+//         console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
+//     }
+// }
+
+// let bergario = new Person('bergario', 50);
+// let superman = new Person('superman', 100);
+
+// 4. Object Create
+
+const methodPerson = {
+
+    booster: function (health) {
 
         this.energy += health;
         console.log(`${this.name} add energy:${health} -> ${this.energy}`);
 
-    }
+    },
 
-    this.attack = function (hit) {
+    attack: function (hit) {
         this.energy -= hit;
         console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
     }
+
 }
 
-let bergario = new Person('bergario', 50);
-let superman = new Person('superman', 100);
+function Person(name, energy) {
+    let person = Object.create(methodPerson);
+    person.name = name;
+    person.energy = energy;
+
+
+    return person;
+}
+
+let bergario = Person('bergario', 50);
+let batman = Person('batman', 30);
