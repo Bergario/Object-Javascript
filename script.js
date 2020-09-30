@@ -98,52 +98,67 @@
 
 // 5. Protoype
 
-function Person(name, energy) {
+// function Person(name, energy) {
 
-    // dibalik layar dibuat deafault --> let this = Object.create(Person.prototype)
+//     // dibalik layar dibuat deafault --> let this = Object.create(Person.prototype)
 
-    this.name = name;
-    this.energy = energy;
-}
+//     this.name = name;
+//     this.energy = energy;
+// }
 
-Person.prototype.booster = function (health) {
+// Person.prototype.booster = function (health) {
 
-    this.energy += health;
-    console.log(`${this.name} add energy:${health} -> ${this.energy}`);
+//     this.energy += health;
+//     console.log(`${this.name} add energy:${health} -> ${this.energy}`);
 
-}
+// }
 
-Person.prototype.attack = function (hit) {
+// Person.prototype.attack = function (hit) {
 
-    this.energy -= hit;
-    console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
-}
+//     this.energy -= hit;
+//     console.log(`${this.name} have been attack: ${hit} -> energy:${this.energy}`);
+// }
 
-let bergario = new Person("bergario", 90);
+// let bergario = new Person("bergario", 90);
 
 
 
 // 6. Class Version
 
-class Person {
+// class Person {
 
-    constructor(name, energy) {
-        this.name = name;
-        this.energy = energy;
+//     constructor(name, energy) {
+//         this.name = name;
+//         this.energy = energy;
+//     }
+
+//     booster(health) {
+
+//         this.energy += health;
+//         return (`${this.name} add energy: ${health} -> ${this.energy}`);
+
+//     }
+
+//     attack(hit) {
+
+//         this.energy -= hit;
+//         return (`${this.name} have been atttack: ${hit} -> energy: ${this.energy}`);
+//     }
+// }
+
+// let bergario = new Person('bergario', 90);
+
+
+// 7. Closure function
+
+let number = (function () {
+    let i = 0;
+
+    return function () {
+        return ++i;
     }
+})();
 
-    booster(health) {
-
-        this.energy += health;
-        return (`${this.name} add energy: ${health} -> ${this.energy}`);
-
-    }
-
-    attack(hit) {
-
-        this.energy -= hit;
-        return (`${this.name} have been atttack: ${hit} -> energy: ${this.energy}`);
-    }
-}
-
-let bergario = new Person('bergario', 90);
+console.log(number());
+console.log(number());
+console.log(number());
