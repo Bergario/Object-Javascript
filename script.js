@@ -151,14 +151,38 @@
 
 // 7. Closure function
 
-let number = (function () {
-    let i = 0;
+// let number = (function () {
+//     let i = 0;
 
-    return function () {
-        return ++i;
-    }
-})();
+//     return function () {
+//         return ++i;
+//     }
+// })();
 
-console.log(number());
-console.log(number());
-console.log(number());
+// console.log(number());
+// console.log(number());
+// console.log(number());
+
+
+// 8. Errow function
+
+// ---> errow version <---
+// let car = (brand) => `My car: ${brand}`;
+
+// ----> versi function expresion <-----
+// let car = function(brand){ return `My car: ${brand}`}
+
+
+// console.log(car('ferrari'));
+
+// Contoh lain
+let brother = ['Galih', 'Tejo', 'Gita'];
+
+// let data = brother.map(name => name);
+
+// ------> jika ingin mengembalikan sebuah object (memakai tanda kurung sebelum kurung kurawal) <-------
+let data = brother.map(nama => ({
+    nama: nama,
+    huruf: nama.length
+}));
+console.table(data);
