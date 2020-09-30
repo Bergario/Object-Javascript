@@ -175,14 +175,50 @@
 
 // console.log(car('ferrari'));
 
-// Contoh lain
-let brother = ['Galih', 'Tejo', 'Gita'];
+// --- Contoh lain ---
+// let brother = ['Galih', 'Tejo', 'Gita'];
 
-// let data = brother.map(name => name);
+// // let data = brother.map(name => name);
 
-// ------> jika ingin mengembalikan sebuah object (memakai tanda kurung sebelum kurung kurawal) <-------
-let data = brother.map(nama => ({
-    nama: nama,
-    huruf: nama.length
-}));
-console.table(data);
+// // ------> jika ingin mengembalikan sebuah object (memakai tanda kurung sebelum kurung kurawal) <-------
+// let data = brother.map(nama => ({
+//     nama: nama,
+//     huruf: nama.length
+// }));
+// console.table(data);
+
+// Contoh Lain
+
+const Car = function () {
+
+    this.brand = "Ferarri";
+    this.color = "red";
+    this.price = 100;
+    // this.description = function () {
+    //     console.log(`My car is ${this.brand}, its color ${this.color}`);
+    // }
+    // -----> function declaration diatas bisa dirubah menjadi arrow function spt dibawah <------
+
+    this.description = () => {
+        console.log(`My car is ${this.brand}, its color ${this.color} and price ${this.price}`);
+
+
+        // setInterval(function () {
+
+        //     this.price += 50;
+
+        // }, 1000);
+    }
+
+    // ---> kalau menggunakan setInterval diatas tidak bisa menggunakan this karena bernilai window, makan dibuat arrow function spt dbwh <---
+
+    setInterval(() => {
+
+        console.log(this.price += 50);
+
+    }, 1000);
+
+
+};
+
+const myCar = new Car();
