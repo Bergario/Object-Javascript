@@ -189,36 +189,81 @@
 
 // Contoh Lain
 
-const Car = function () {
+// const Car = function () {
 
-    this.brand = "Ferarri";
-    this.color = "red";
-    this.price = 100;
-    // this.description = function () {
-    //     console.log(`My car is ${this.brand}, its color ${this.color}`);
-    // }
-    // -----> function declaration diatas bisa dirubah menjadi arrow function spt dibawah <------
+//     this.brand = "Ferarri";
+//     this.color = "red";
+//     this.price = 100;
+//     // this.description = function () {
+//     //     console.log(`My car is ${this.brand}, its color ${this.color}`);
+//     // }
+//     // -----> function declaration diatas bisa dirubah menjadi arrow function spt dibawah <------
 
-    this.description = () => {
-        console.log(`My car is ${this.brand}, its color ${this.color} and price ${this.price}`);
-
-
-        // setInterval(function () {
-
-        //     this.price += 50;
-
-        // }, 1000);
-    }
-
-    // ---> kalau menggunakan setInterval diatas tidak bisa menggunakan this karena bernilai window, makan dibuat arrow function spt dbwh <---
-
-    setInterval(() => {
-
-        console.log(this.price += 50);
-
-    }, 1000);
+//     this.description = () => {
+//         console.log(`My car is ${this.brand}, its color ${this.color} and price ${this.price}`);
 
 
-};
+//         // setInterval(function () {
 
-const myCar = new Car();
+//         //     this.price += 50;
+
+//         // }, 1000);
+//     }
+
+//     // ---> kalau menggunakan setInterval diatas tidak bisa menggunakan this karena bernilai window, makan dibuat arrow function spt dbwh <---
+
+//     setInterval(() => {
+
+//         console.log(this.price += 50);
+
+//     }, 1000);
+
+
+// };
+
+// const myCar = new Car();
+
+
+// 9. Filter, Map, Reduce & Chaining
+
+const angka = [2, 3, 7, 9, -4, -7, 8, -9, 1];
+
+// const newAngka = [];
+// for (let i = 0; i < angka.length; i++) {
+
+//     if (angka[i] > 4) {
+
+//         newAngka.push(angka[i]);
+//     }
+// }
+
+// console.log(newAngka);
+
+// ---> cara diatas dapat disederahanakan menjadi dibawah (filter + arrow function)
+
+// const newAngka = angka.filter(a => a > 4);
+
+// console.log(newAngka);
+
+// ----> cara sederhana menggunakan map + arrow function
+
+// const newAngka = angka.map(a => a * 3);
+
+// console.log(newAngka);
+
+// ----> menggunakan Reduce (parameter pertamana acumulator, keuda current)
+
+// const newAngka = angka.reduce(function (plus, a) {
+
+//     return a + plus;
+
+// });
+// console.log(newAngka);
+
+// -----> Penggabungan atau Chaining(menggunakan tanda titik)
+// -----> Angka difilter yg kurangdari 6 lalu dikali 2 lalu dijumlahkan semua
+
+const newAngka = angka.filter(a => a < 6)
+    .map(a => a * -2).reduce((akumulasi, angkaSekarang) => akumulasi + angkaSekarang);
+
+console.log(newAngka);
