@@ -263,7 +263,41 @@ const angka = [2, 3, 7, 9, -4, -7, 8, -9, 1];
 // -----> Penggabungan atau Chaining(menggunakan tanda titik)
 // -----> Angka difilter yg kurangdari 6 lalu dikali 2 lalu dijumlahkan semua
 
-const newAngka = angka.filter(a => a < 6)
-    .map(a => a * -2).reduce((akumulasi, angkaSekarang) => akumulasi + angkaSekarang);
+// const newAngka = angka.filter(a => a < 6)
+//     .map(a => a * -2).reduce((akumulasi, angkaSekarang) => akumulasi + angkaSekarang);
 
-console.log(newAngka);
+// console.log(newAngka);
+
+// ----> Template Literals
+
+const mahasiswa = {
+
+    nama: "Bemby",
+    semester: 5,
+    matakuliah: [
+        `Matematika`,
+        `Fisika`,
+        `Kalkulus`,
+        `Database lanjut`
+
+    ]
+
+};
+
+function cetakMataKuliah(matakuliah) {
+    return `<ol>
+    ${matakuliah.map(mk =>`<li> ${mk} </li>`).join("")}
+    </ol>`
+}
+
+
+const el = `<div class="mahasiswa">
+<h2>${mahasiswa.nama}</h2>
+    <span>Semester: ${mahasiswa.semester}</span>
+    <h4>Mata Kuliah:</h4>
+    ${cetakMataKuliah(mahasiswa.matakuliah)}
+</div>`
+
+const daftarMhs = document.querySelector('.container');
+
+daftarMhs.innerHTML = el;
